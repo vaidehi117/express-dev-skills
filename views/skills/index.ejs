@@ -7,14 +7,17 @@
     <title>Express All Skills</title>
 </head>
 <body>
-    <a href="/">Home</a>
     <h1>Skills</h1>
+    <a href="/skills/new">New skill</a>
     <ul>
       <% skills.forEach(function(t) { %>
         <li>
           <a href="/skills/<%= t.id%>"><%= t.skill %></a>
             - 
           <%= t.done ? 'done' : 'not done' %>
+          <form method="" action="">
+            <button type="submit">X</button>
+          </form>
         </li>
       <% }); %>
     </ul>
