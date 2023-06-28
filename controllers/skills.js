@@ -1,4 +1,4 @@
- const skills = require('../models/skill');
+ const skillmodel = require('../models/skill');
  
  module.exports = {
     index,
@@ -9,7 +9,7 @@
 
   function create(req, res) {
     console.log(req.body, "<_contents of our form");
-    skillModel.create(req.body);
+    skillmodel.create(req.body);
     res.redirect('/skills');
   }
 
@@ -19,14 +19,14 @@
 
   function show(req, res) {
     res.render('skills/show', {
-      skills: skills.getOne(req.params.id),
+      skills: skillmodel.getOne(req.params.id),
     });
   }
   
   
   function index(req, res) {
     res.render('skills/index', {
-      skills: skills.getAll()
+      skills: skillmodel.getAll()
     });
   }
 
