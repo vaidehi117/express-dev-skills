@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Express All Skills</title>
 </head>
 <body>
+    <a href="/">Home</a>
     <h1>All Skills</h1>
     <ul>
-      <% slills.forEach(function(t) { %>
+      <% skills.forEach(function(t) { %>
         <li>
           <%= t.skill %>
             - 
