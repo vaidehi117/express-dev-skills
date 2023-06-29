@@ -1,15 +1,21 @@
- const skillmodel = require('../models/skill');
+ const skillModel = require('../models/skill');
  
  module.exports = {
     index,
     show,
     new: newSkill,
-    create
+    create,
+    delete:deleteOne
   };
+
+  function deleteOne(req, res) {
+    skillModel.deleteOne(req.params.id);
+    res.redirect('/skills');
+  }
 
   function create(req, res) {
     console.log(req.body, "<_contents of our form");
-    skillmodel.create(req.body);
+    skillModel.create(req.body);
     res.redirect('/skills');
   }
 
@@ -19,14 +25,14 @@
 
   function show(req, res) {
     res.render('skills/show', {
-      skills: skillmodel.getOne(req.params.id),
+      skills: skillModel.getOne(req.params.id),
     });
   }
   
   
   function index(req, res) {
     res.render('skills/index', {
-      skills: skillmodel.getAll()
+      skills: skillModel.getAll()
     });
   }
 

@@ -7,8 +7,18 @@ const skills = [
   module.exports = {
     getAll,
     getOne,
-    create
+    create,
+    deleteOne
   };
+
+  function deleteOne(id) {
+    //Fine the index based on the id of the todo object
+    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+    let skill = skills[idx];
+    skill = {
+      ...skill,
+    }
+  }
 
 function getOne(id) {
     id = parseInt(id);

@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Skills</h1>
+    <!-- this is ow the client makes an http get request to the server, for a new todo form  -->
     <a href="/skills/new">New skill</a>
     <ul>
       <% skills.forEach(function(t) { %>
@@ -15,7 +16,8 @@
           <a href="/skills/<%= t.id%>"><%= t.skill %></a>
             - 
           <%= t.done ? 'done' : 'not done' %>
-          <form method="" action="">
+          
+          <form method="POST" action="/skills/<%= t.id %>?_method=DELETE">
             <button type="submit">X</button>
           </form>
         </li>
